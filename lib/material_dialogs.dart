@@ -7,7 +7,7 @@ import 'package:material_dialogs/widgets/dialogs/dialog_widget.dart';
 class Dialogs {
   ///[titleStyle] can be used to change the dialog title style
   static const TextStyle titleStyle =
-      const TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
+  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
 
   ///[bcgColor] background default value
   static const Color bcgColor = const Color(0xfffefefe);
@@ -50,6 +50,7 @@ class Dialogs {
     String? msg,
     List<Widget>? actions,
     Widget customView = holder,
+    Widget textBox = holder,
     String? animation,
     double? animationFrameRate,
     bool? animationRepeat,
@@ -77,6 +78,7 @@ class Dialogs {
                 ? FrameRate(animationFrameRate)
                 : FrameRate.composition,
             customView: customView,
+            textBox: textBox,
             animationRepeat: animationRepeat,
             animationAnimate: animationAnimate,
             animationReverse: animationReverse,
@@ -96,6 +98,7 @@ class Dialogs {
     String? msg,
     List<Widget>? actions,
     Widget customView = holder,
+    Widget textBox = holder,
     String? animation,
     double? animationFrameRate,
     bool? animationRepeat,
@@ -117,6 +120,7 @@ class Dialogs {
         msg: msg,
         actions: actions,
         animation: animation,
+        textBox: textBox,
         animationFrameRate: animationFrameRate != null
             ? FrameRate(animationFrameRate)
             : FrameRate.composition,

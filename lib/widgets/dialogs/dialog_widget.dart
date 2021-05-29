@@ -9,6 +9,7 @@ class DialogWidget extends StatelessWidget {
     this.title,
     this.msg,
     this.actions,
+    this.textBox,
     this.animation,
     this.animationFrameRate,
     this.animationRepeat,
@@ -25,6 +26,9 @@ class DialogWidget extends StatelessWidget {
 
   /// [customView] a widget to display a custom widget instead of the animation view.
   final Widget? customView;
+
+  /// [textBox] a text input box widget.
+  final Widget? textBox;
 
   /// [title] your dialog title
   final String? title;
@@ -64,49 +68,50 @@ class DialogWidget extends StatelessWidget {
       children: [
         animation != null
             ? Container(
-                padding: EdgeInsets.only(top: 20),
-                height: 200,
-                width: double.infinity,
-                child: Lottie.asset(
-                  animation!,
-                  animate: animationAnimate,
-                  frameRate: animationFrameRate,
-                  repeat: animationRepeat,
-                  reverse: animationReverse,
-                  fit: BoxFit.contain,
-                ),
-              )
+          padding: EdgeInsets.only(top: 20),
+          height: 200,
+          width: double.infinity,
+          child: Lottie.asset(
+            animation!,
+            animate: animationAnimate,
+            frameRate: animationFrameRate,
+            repeat: animationRepeat,
+            reverse: animationReverse,
+            fit: BoxFit.contain,
+          ),
+        )
             : SizedBox(
-                height: 0,
-              ),
+          height: 0,
+        ),
         customView!,
         title != null
             ? Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 24.0),
-                child: Text(
-                  title!,
-                  style: titleStyle,
-                ),
-              )
+          padding: const EdgeInsets.only(right: 20, left: 20, top: 24.0),
+          child: Text(
+            title!,
+            style: titleStyle,
+          ),
+        )
             : SizedBox(
-                height: 4,
-              ),
+          height: 4,
+        ),
         msg != null
             ? Padding(
-                padding: const EdgeInsets.only(right: 20, left: 20, top: 16.0),
-                child: Text(
-                  msg!,
-                  style: msgStyle,
-                ),
-              )
+          padding: const EdgeInsets.only(right: 20, left: 20, top: 16.0),
+          child: Text(
+            msg!,
+            style: msgStyle,
+          ),
+        )
             : SizedBox(
-                height: 20,
-              ),
+          height: 20,
+        ),
+        textBox!,
         actions != null && actions!.isNotEmpty
             ? buttons(context)
             : SizedBox(
-                height: 20,
-              ),
+          height: 20,
+        ),
       ],
     );
   }
@@ -114,7 +119,7 @@ class DialogWidget extends StatelessWidget {
   Widget buttons(BuildContext context) {
     return Padding(
       padding:
-          const EdgeInsets.only(right: 20, left: 20, top: 16.0, bottom: 20.0),
+      const EdgeInsets.only(right: 20, left: 20, top: 16.0, bottom: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(actions!.length, (index) {

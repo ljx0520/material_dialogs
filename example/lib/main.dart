@@ -1,3 +1,4 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -65,6 +66,12 @@ class TestState extends State<TestPage> {
           title: "Delete",
           color: Colors.white,
           context: context,
+          textBox: Container(
+            width: 200,
+            child: TextField(
+              textCapitalization: TextCapitalization.sentences,
+            ),
+          ),
           actions: [
             IconsOutlineButton(
               onPressed: () {},
