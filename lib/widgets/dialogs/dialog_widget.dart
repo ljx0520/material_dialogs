@@ -106,7 +106,14 @@ class DialogWidget extends StatelessWidget {
             : SizedBox(
           height: 20,
         ),
-        textBox!,
+        textBox != null
+            ? Padding(
+          padding: const EdgeInsets.only(right: 20, left: 20, top: 16.0),
+          child: textBox,
+        )
+            : SizedBox(
+          height: 0,
+        ),
         actions != null && actions!.isNotEmpty
             ? buttons(context)
             : SizedBox(
